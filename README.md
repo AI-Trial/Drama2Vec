@@ -106,7 +106,8 @@ prediction
 `$ python drama2vec.py --mode=arithmetic --arith_list ID_NUMBERx3`
   
 __例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合__  
-`$ python drama2vec.py --mode=arithmetic --arith_list 297 130 70`  
+`$ python drama2vec.py --mode=arithmetic --arith_list 297 130 70`
+  
 Output  
 ```
 "[木村拓哉] minus [20~25] plus [under5]"
@@ -137,7 +138,8 @@ Output
 `$ python drama2Vec.py --mode=2d-arithmetic --vis_mode=tSNE or SVD --arith_list ID_NUMBERx3`  
   
 __例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合(tSNE)__    
-`$ python drama2Vec.py --mode=2d-arithmetic --vis_mode=tSNE --arith_list 297 130 70`  
+`$ python drama2Vec.py --mode=2d-arithmetic --vis_mode=tSNE --arith_list 297 130 70` 
+ 
 Output  
 ```
 "[木村拓哉] minus [20~25] plus [under5]"
