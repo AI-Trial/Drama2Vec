@@ -102,11 +102,11 @@ prediction
 指定の項目のベクトル同士を足し引き演算し、演算後のベクトルのSimilarityを出力する。  
 1. DataID.csvより、確認したい項目のIDを3つ記憶する。(例:木村拓哉=297, 20~25=130, under5=70)  
 　　-> 1つ目 - 2つ目 + 3つ目の順番で計算される。  
-2. 以下を実行
+2. 以下を実行  
 `$ python drama2vec.py --mode=arithmetic --arith_list ID_NUMBERx3`
   
-__例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合__
-`$ python drama2vec.py --mode=arithmetic --arith_list 297 130 70`
+__例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合__  
+`$ python drama2vec.py --mode=arithmetic --arith_list 297 130 70`  
 Output  
 ```
 "[木村拓哉] minus [20~25] plus [under5]"
@@ -133,10 +133,10 @@ Output
 1. DataID.csvより、確認したい項目のIDを3つ記憶する。(例:木村拓哉=297, 20~25=130, under5=70)  
 　　-> 1つ目 - 2つ目 + 3つ目の順番で計算される。  
 2. 次元削減の方法をSVDかtSNEか選択する。  
-3. 以下を実行する。  
+3. 以下を実行  
 `$ python drama2Vec.py --mode=2d-arithmetic --vis_mode=tSNE or SVD --arith_list ID_NUMBERx3`  
   
-__例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合(tSNE)__
+__例：木村拓哉 - 視聴率20~25% + 視聴率5%以下の場合(tSNE)__    
 `$ python drama2Vec.py --mode=2d-arithmetic --vis_mode=tSNE --arith_list 297 130 70`  
 Output  
 ```
