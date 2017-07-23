@@ -18,6 +18,7 @@ if __name__ == '__main__':
 	cmd_parser.add_argument('--arith_list', metavar='[base, minus, plus]', nargs='+', type=int, default=[297,341,70], help='calcurate arithmetic relativity')
 	cmd_parser.add_argument('--train_model', metavar='train_model', type=str, default='CBOW', help='CBOW or skipgram')
 	cmd_parser.add_argument('--valid_list', metavar='4 arguments', nargs='+', type=int, default=[297,150,7,228], help='valid_id lists')
+	cmd_parser.add_argument('--vis_mode', metavar='tSNE/SVD', type=str, default='tSNE', help='tSNE or SVD')
 
 	args = cmd_parser.parse_args()
 	row=678
@@ -31,6 +32,7 @@ if __name__ == '__main__':
 	arith_list = args.arith_list
 	train_model = args.train_model
 	valid_list = args.valid_list
+	vis_mode = args.vis_mode
 
 	"""
 	data_operation
@@ -283,10 +285,14 @@ if __name__ == '__main__':
 		if mode == '2d-visualize' or '2d-arithmetic':
 			#2D-representation
 
-			tsne = TSNE(perplexity=50, n_components=2, init='pca', n_iter=5000000)
+			tsne = TSNE(perplexity=50, n_components=2, init='pca', n_iter=50000)
 			svd = TruncatedSVD(n_components=2, random_state=0)
-			two_d_embeddings = svd.fit_transform(final_embeddings[:, :])
-			#two_d_embeddings = tsne.fit_transform(final_embeddings[:, :])
+			if vis_mode =='SVD':
+				print '--2d represented by SVD'
+				two_d_embeddings = svd.fit_transform(final_embeddings[:, :])
+			elif vis_mode == 'tSNE':
+				print '--2d represented by tSNE'
+				two_d_embeddings = tsne.fit_transform(final_embeddings[:, :])
 
 			def plot(embeddings, labels, category):
 				assert embeddings.shape[0] >= len(labels), 'More labels than embeddings'
